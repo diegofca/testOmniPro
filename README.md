@@ -1,6 +1,6 @@
-# test_app_photos
+# Test app Photos Api
 
-A new Flutter project.
+A Flutter project.
 
 ## Getting Started
 
@@ -8,9 +8,9 @@ This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Use flutter version:  >= 3.22.1
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Flutter Bloc was used as a dependency manager,
+clean Architecture, and singleton pattern for the injection of dependencies with GetIt, Http was used as a manager of Asynchronous calls to an API, and CacheImageNetwork was used to load remote images.
+
+In order to run the app you just have to launch the "flutter pub get", -> install pod if it is for iOS, and to finish flutter run.
