@@ -13,7 +13,7 @@ import 'dart:async';
 /// REST API service for handling photos.
 abstract class HomeApiService {
   /// Endpoint to retrieve photos.
-  Future<HttpDataResponse<List<Photo>>> getPhotos();
+  Future<HttpResponse<List<Photo>>> getPhotos();
 }
 
 class HomeApiServiceImpl implements HomeApiService {
@@ -23,7 +23,7 @@ class HomeApiServiceImpl implements HomeApiService {
   HomeApiServiceImpl(this._client);
 
   @override
-  Future<HttpDataResponse<List<Photo>>> getPhotos() async {
+  Future<HttpResponse<List<Photo>>> getPhotos() async {
    final url = Uri.parse(ApiConstants.photos);
 
     final response = await _client.get(url);
@@ -31,16 +31,16 @@ class HomeApiServiceImpl implements HomeApiService {
     if (response.statusCode == HttpStatus.ok) {
       final data = jsonDecode(response.body);
       final model = PhotoResponse.fromJson(data);
-      return HttpDataResponse(model.photos, response);
+      return HttpResponse(model.photos, response);
     } else {
       throw Exception('Failed to load photos');
     } 
   }
 }
 
-class HttpDataResponse<T> {
+class HttpResponse<T> {
   final T data;
   final Response response;
 
-  HttpDataResponse(this.data, this.response);
+  HttpResponse(this.data, this.response);
 }

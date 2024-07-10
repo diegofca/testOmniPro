@@ -15,7 +15,7 @@ abstract class BaseApiRepository {
   /// while sending the request or recieving the response.
   @protected
   Future<DataState<T>> getStateOf<T>({
-    required Future<HttpDataResponse<T>> Function() request,
+    required Future<HttpResponse<T>> Function() request,
   }) async {
     try {
       final httpResponse = await request();
